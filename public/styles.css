@@ -1,51 +1,148 @@
-body,
-html {
+/* Mobile-first styles */
+body, html {
   height: 100%;
   margin: 0;
   padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: #f8f8f8;
+  overflow: hidden;
+}
+
+.mobile-chat-container {
   display: flex;
   flex-direction: column;
+  height: 100vh;
+  max-width: 100%;
+  margin: 0 auto;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-.chat {
-  padding-top: 40px;
+.chat-header {
+  background-color: #075e54;
+  color: white;
+  padding: 15px 20px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 }
 
-#root {
+.chat-header h4 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.chat-subtitle {
+  margin: 5px 0 0;
+  font-size: 12px;
+  color: rgba(255,255,255,0.8);
+}
+
+.chat-messages {
   flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
   overflow-y: auto;
-  height: 100%;
-  /* padding: 10px; */
+  padding: 10px 15px;
+  background-color: #e5ddd5;
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABeSURBVDhP7cxBCsAgDETR6P3P3KZQKPhJQbDQDgRf4GMyk5n9XQfnnJRS8t57rbXWWmuttdZaa6211lprrbXWWmuttdZaa6211lprrbXWWmuttdZaa6211lprrbX2X/sCJx8j6FDz0jMAAAAASUVORK5CYII=');
 }
 
 .message {
-  margin-bottom: 10px;
+  margin-bottom: 15px;
+  max-width: 80%;
+  clear: both;
+  position: relative;
 }
 
-.message .user {
+.message-inner {
+  padding: 8px 12px;
+  border-radius: 18px;
+  position: relative;
+  word-wrap: break-word;
+  line-height: 1.4;
+}
+
+.message.received .message-inner {
+  background-color: white;
+  float: left;
+  border-bottom-left-radius: 5px;
+}
+
+.message.sent .message-inner {
+  background-color: #dcf8c6;
+  float: right;
+  border-bottom-right-radius: 5px;
+}
+
+.message-user {
   font-weight: bold;
+  font-size: 12px;
+  margin-bottom: 3px;
+  color: #555;
+}
+
+.message-text {
+  font-size: 14px;
+}
+
+.message-time {
+  font-size: 11px;
+  color: #999;
+  margin-top: 3px;
   text-align: right;
 }
 
-.message .remove {
-  position: absolute;
-  width: 22px;
-  height: 20px;
-  left: -60px;
-  /* display: "block", */
-  display: none;
-  padding: 0;
-  line-height: 18px;
-  border: "none";
+.message-input-container {
+  display: flex;
+  padding: 10px;
+  background-color: #f0f0f0;
+  border-top: 1px solid #ddd;
 }
 
-.send-message {
-  padding: 0;
+.message-input {
+  flex: 1;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 15px;
+  font-size: 14px;
+  outline: none;
+  background-color: white;
 }
 
-.my-input-text::placeholder {
-  color: #ccc;
+.send-button {
+  background-color: #075e54;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin-left: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.send-button:active {
+  background-color: #054d44;
+}
+
+/* Hide on desktop */
+@media (min-width: 768px) {
+  body::before {
+    content: "This chat is designed for mobile devices only. Please open on a smartphone.";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+    text-align: center;
+    background-color: #f8f8f8;
+    color: #333;
+    font-size: 18px;
+  }
+  
+  .mobile-chat-container {
+    display: none;
+  }
 }
