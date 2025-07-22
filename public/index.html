@@ -1,28 +1,41 @@
 <!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-    <title>Mobile Chat</title>
-    <link rel="stylesheet" href="css/normalize.css" />
-    <link rel="stylesheet" href="css/skeleton.css" />
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="icon" type="image/ico" href="favicon.ico" />
-    <script src="/dist/index.js" type="module"></script>
-  </head>
-  <body>
-    <div class="mobile-chat-container">
-      <div class="chat-header">
-        <h4>Mobile Chat</h4>
-        <p class="chat-subtitle">Powered by Durable Objects</p>
+<html lang="th">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <title>แอปแชท</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/skeleton.css" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" type="image/ico" href="favicon.ico" />
+  <script src="/dist/index.js" type="module"></script>
+</head>
+<body>
+  <div class="mobile-chat-container">
+    <!-- ส่วนหัวแชท -->
+    <div class="chat-header">
+      <button class="back-button">←</button>
+      <div class="header-content">
+        <h4>ห้องแชท</h4>
+        <p class="active-users">กำลังออนไลน์: <span id="online-count">1</span> คน</p>
       </div>
-      
-      <div class="chat-messages" id="root"></div>
-      
-      <div class="message-input-container">
-        <input type="text" class="message-input" placeholder="Type a message..." />
-        <button class="send-button">Send</button>
-      </div>
+      <button class="menu-button">⋮</button>
     </div>
-  </body>
+    
+    <!-- รายการข้อความ -->
+    <div class="chat-messages" id="root"></div>
+    
+    <!-- ส่วนป้อนข้อความ -->
+    <div class="message-input-container">
+      <button class="emoji-button">😊</button>
+      <input type="text" class="message-input" placeholder="พิมพ์ข้อความ..." />
+      <button class="send-button">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path d="M22 2L11 13" stroke="white" stroke-width="2"/>
+          <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="white" stroke-width="2"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</body>
 </html>
